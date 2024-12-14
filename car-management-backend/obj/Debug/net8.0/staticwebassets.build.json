@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "pQIvsTPn3l3k2stLksaMAIBtCTdif1EsNbPLCcTE64o=",
+  "Source": "car-management-backend",
+  "BasePath": "_content/car-management-backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
