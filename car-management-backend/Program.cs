@@ -1,4 +1,11 @@
 
+using car_management_backend.Context;
+using car_management_backend.Repository.Implementations;
+using car_management_backend.Repository.Interfaces;
+using car_management_backend.Service.Implementations;
+using car_management_backend.Service.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 namespace car_management_backend
 {
     public class Program
@@ -13,6 +20,11 @@ namespace car_management_backend
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<AppDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<IGarageRepository, GarageRepository>();
+            builder.Services.AddScoped<IGarageService, GarageService>();
+
 
             var app = builder.Build();
 

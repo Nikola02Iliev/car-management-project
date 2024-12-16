@@ -1,1 +1,101 @@
-[]
+[
+  {
+    "ContainingType": "car_management_backend.Controllers.GarageController",
+    "Method": "GetGarages",
+    "RelativePath": "api/Garage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.GarageController",
+    "Method": "PostGarageAsync",
+    "RelativePath": "api/Garage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "garageInPostDTO",
+        "Type": "car_management_backend.DTOs.Garage.GarageInPostDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "car_management_backend.Models.Garage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.GarageController",
+    "Method": "GetGarageByIdAsync",
+    "RelativePath": "api/Garage/{garageId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "garageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "car_management_backend.DTOs.Garage.GarageInGetDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.GarageController",
+    "Method": "PutGarage",
+    "RelativePath": "api/Garage/{garageId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "garageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "garageInPutDTO",
+        "Type": "car_management_backend.DTOs.Garage.GarageInPutDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.GarageController",
+    "Method": "DeleteGarage",
+    "RelativePath": "api/Garage/{garageId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "garageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
