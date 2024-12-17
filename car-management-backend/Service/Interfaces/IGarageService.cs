@@ -1,4 +1,4 @@
-﻿using car_management_backend.DTOs.Garage;
+﻿using car_management_backend.DTOs.GarageDTOs;
 using car_management_backend.Models;
 
 namespace car_management_backend.Service.Interfaces

@@ -1,7 +1,8 @@
-﻿namespace car_management_backend.DTOs.Garage
+﻿namespace car_management_backend.DTOs.GarageDTOs
 {
-    public class GarageInPostDTO
+    public class GarageDTOInCarInGetDTO
     {
+        public int GarageId { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Location { get; set; } = string.Empty;
         public string City { get; set; } = string.Empty;

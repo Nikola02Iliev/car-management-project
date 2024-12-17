@@ -1,6 +1,6 @@
-﻿namespace car_management_backend.DTOs.Garage
+﻿namespace car_management_backend.DTOs.GarageDTOs
 {
-    public class GarageInPutDTO
+    public class GarageInPostDTO
     {
         public string Name { get; set; } = string.Empty;
         public string Location { get; set; } = string.Empty;

@@ -1,14 +1,11 @@
-﻿namespace car_management_backend.Models
+﻿namespace car_management_backend.DTOs.GarageDTOs
 {
-    public class Garage
+    public class GarageAfterPutResponseDTO
     {
         public int GarageId { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Location { get; set; } = string.Empty;
         public string City { get; set; } = string.Empty;
-        public int? Capacity {  get; set; }
-        public List<CarGarage> CarGarages { get; set; } = new List<CarGarage>();
-
-
+        public int? Capacity { get; set; }
     }
 }

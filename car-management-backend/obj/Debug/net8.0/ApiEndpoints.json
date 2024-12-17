@@ -1,5 +1,114 @@
 [
   {
+    "ContainingType": "car_management_backend.Controllers.CarController",
+    "Method": "GetCars",
+    "RelativePath": "api/Car",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.CarController",
+    "Method": "PostCar",
+    "RelativePath": "api/Car",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carInPostDTO",
+        "Type": "car_management_backend.DTOs.CarDTOs.CarInPostDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "car_management_backend.DTOs.CarDTOs.CarAfterPostResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.CarController",
+    "Method": "GetCarByIdAsync",
+    "RelativePath": "api/Car/{carId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "car_management_backend.DTOs.CarDTOs.CarInGetDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.CarController",
+    "Method": "PutCar",
+    "RelativePath": "api/Car/{carId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "carInPutDTO",
+        "Type": "car_management_backend.DTOs.CarDTOs.CarInPutDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "car_management_backend.DTOs.CarDTOs.CarAfterPutResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.CarController",
+    "Method": "DeleteCar",
+    "RelativePath": "api/Car/{carId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "car_management_backend.Controllers.GarageController",
     "Method": "GetGarages",
     "RelativePath": "api/Garage",
@@ -19,13 +128,13 @@
     "Parameters": [
       {
         "Name": "garageInPostDTO",
-        "Type": "car_management_backend.DTOs.Garage.GarageInPostDTO",
+        "Type": "car_management_backend.DTOs.GarageDTOs.GarageInPostDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "car_management_backend.Models.Garage",
+        "Type": "car_management_backend.DTOs.GarageDTOs.GarageAfterPostResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -51,7 +160,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "car_management_backend.DTOs.Garage.GarageInGetDTO",
+        "Type": "car_management_backend.DTOs.GarageDTOs.GarageInGetDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -76,7 +185,7 @@
       },
       {
         "Name": "garageInPutDTO",
-        "Type": "car_management_backend.DTOs.Garage.GarageInPutDTO",
+        "Type": "car_management_backend.DTOs.GarageDTOs.GarageInPutDTO",
         "IsRequired": true
       }
     ],

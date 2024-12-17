@@ -24,7 +24,10 @@ namespace car_management_backend
             builder.Services.AddDbContext<AppDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddScoped<IGarageRepository, GarageRepository>();
             builder.Services.AddScoped<IGarageService, GarageService>();
-
+            builder.Services.AddScoped<ICarRepository, CarRepository>();
+            builder.Services.AddScoped<ICarService, CarService>();
+            builder.Services.AddScoped<ICarGarageRepository, CarGarageRepository>();
+            
 
             var app = builder.Build();
 

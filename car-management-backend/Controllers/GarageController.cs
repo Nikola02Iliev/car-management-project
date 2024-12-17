@@ -9,7 +9,7 @@ using car_management_backend.Context;
 using car_management_backend.Models;
 using car_management_backend.Service.Interfaces;
 using car_management_backend.Mappers;
-using car_management_backend.DTOs.Garage;
+using car_management_backend.DTOs.GarageDTOs;
 
 namespace car_management_backend.Controllers
 {
@@ -67,12 +67,20 @@ namespace car_management_backend.Controllers
             await _garageService.UpdateGarageAsync(garage, garageInPutDTO);
 
             
-            return NoContent();
+            return Ok(new GarageAfterPutResponseDTO
+            {
+               GarageId = garage.GarageId,
+               Name = garage.Name,
+               Location = garage.Location,
+               City = garage.City,
+               Capacity = garage.Capacity,
+
+            });
         }
 
         //Create Garage
         [HttpPost]
-        public async Task<ActionResult<Garage>> PostGarageAsync(GarageInPostDTO garageInPostDTO)
+        public async Task<ActionResult<GarageAfterPostResponseDTO>> PostGarageAsync(GarageInPostDTO garageInPostDTO)
         {
             var garage = garageInPostDTO.ConvertGarageInPostDTOToGarage();
 

@@ -7,6 +7,6 @@
         public string Model { get; set; } = string.Empty;
         public int? ProductionYear { get; set; }
         public string LicensePlate { get; set; } = string.Empty;
-        public List<Garage> Garages { get; set; } = new List<Garage>();
+        public List<CarGarage> CarGarages { get; set; } = new List<CarGarage>();
     }
 }

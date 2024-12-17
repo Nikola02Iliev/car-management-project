@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using car_management_backend.Context;
 
@@ -11,9 +12,11 @@ using car_management_backend.Context;
 namespace car_management_backend.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241217075133_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,29 +53,6 @@ namespace car_management_backend.Migrations
                     b.ToTable("Cars");
                 });
 
-            modelBuilder.Entity("car_management_backend.Models.CarGarage", b =>
-                {
-                    b.Property<int>("CarGarageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarGarageId"));
-
-                    b.Property<int?>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GarageId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CarGarageId");
-
-                    b.HasIndex("CarId");
-
-                    b.HasIndex("GarageId");
-
-                    b.ToTable("CarGarage");
-                });
-
             modelBuilder.Entity("car_management_backend.Models.Garage", b =>
                 {
                     b.Property<int>("GarageId")
@@ -82,6 +62,9 @@ namespace car_management_backend.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GarageId"));
 
                     b.Property<int?>("Capacity")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CarId")
                         .HasColumnType("int");
 
                     b.Property<string>("City")
@@ -97,6 +80,8 @@ namespace car_management_backend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("GarageId");
+
+                    b.HasIndex("CarId");
 
                     b.ToTable("Garages");
                 });
@@ -131,19 +116,11 @@ namespace car_management_backend.Migrations
                     b.ToTable("Maintenances");
                 });
 
-            modelBuilder.Entity("car_management_backend.Models.CarGarage", b =>
+            modelBuilder.Entity("car_management_backend.Models.Garage", b =>
                 {
-                    b.HasOne("car_management_backend.Models.Car", "Car")
-                        .WithMany("CarGarages")
+                    b.HasOne("car_management_backend.Models.Car", null)
+                        .WithMany("Garages")
                         .HasForeignKey("CarId");
-
-                    b.HasOne("car_management_backend.Models.Garage", "Garage")
-                        .WithMany("CarGarages")
-                        .HasForeignKey("GarageId");
-
-                    b.Navigation("Car");
-
-                    b.Navigation("Garage");
                 });
 
             modelBuilder.Entity("car_management_backend.Models.Maintenance", b =>
@@ -163,12 +140,7 @@ namespace car_management_backend.Migrations
 
             modelBuilder.Entity("car_management_backend.Models.Car", b =>
                 {
-                    b.Navigation("CarGarages");
-                });
-
-            modelBuilder.Entity("car_management_backend.Models.Garage", b =>
-                {
-                    b.Navigation("CarGarages");
+                    b.Navigation("Garages");
                 });
 #pragma warning restore 612, 618
         }

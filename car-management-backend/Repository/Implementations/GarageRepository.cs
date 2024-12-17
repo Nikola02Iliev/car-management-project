@@ -1,5 +1,5 @@
 ﻿using car_management_backend.Context;
-using car_management_backend.DTOs.Garage;
+using car_management_backend.DTOs.GarageDTOs;
 using car_management_backend.Models;
 using car_management_backend.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;

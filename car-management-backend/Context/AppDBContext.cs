@@ -11,8 +11,7 @@ namespace car_management_backend.Context
 
         public DbSet<Garage> Garages { get; set; }
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Maintenance> Maintenances { get; set; }
 
-
-        
     }
 }
