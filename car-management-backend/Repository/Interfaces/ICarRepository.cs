@@ -6,7 +6,7 @@ namespace car_management_backend.Repository.Interfaces
     public interface ICarRepository
     {
         IQueryable<Car> GetCars();
-        Task<Car?> GetCarByIdAsync(int carId);
+        Task<Car?> GetCarByIdAsync(int? carId);
         Task CreateCarAsync(Car car);
         void UpdateCar(Car car, CarInPutDTO carInPutDTO);
         void DeleteCar(Car car);

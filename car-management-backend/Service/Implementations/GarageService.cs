@@ -9,11 +9,13 @@ namespace car_management_backend.Service.Implementations
     {
         private readonly IGarageRepository _garageRepository;
         private readonly ICarGarageRepository _carGarageRepository;
+        private readonly IMaintenanceRepository _maintenanceRepository;
 
-        public GarageService(IGarageRepository garageRepository, ICarGarageRepository carGarageRepository)
+        public GarageService(IGarageRepository garageRepository, ICarGarageRepository carGarageRepository, IMaintenanceRepository maintenanceRepository)
         {
             _garageRepository = garageRepository;
             _carGarageRepository = carGarageRepository;
+            _maintenanceRepository = maintenanceRepository;
         }
 
         public IQueryable<Garage> GetGarages()
@@ -23,7 +25,7 @@ namespace car_management_backend.Service.Implementations
             return garages;
         }
 
-        public async Task<Garage?> GetGarageByIdAsync(int garageId)
+        public async Task<Garage?> GetGarageByIdAsync(int? garageId)
         {
             var garage = await _garageRepository.GetGarageByIdAsync(garageId);
 
@@ -45,6 +47,13 @@ namespace car_management_backend.Service.Implementations
         public async Task DeleteGarageAsync(Garage garage)
         {
             var carGarages = await _carGarageRepository.GetCarGaragesForGarage(garage.GarageId);
+            var maintenances = await _maintenanceRepository.GetMaintenancesForGarage(garage.GarageId);
+
+            if (maintenances.Any())
+            {
+                _maintenanceRepository.DeleteMaintenances(maintenances);
+                await _maintenanceRepository.SaveChangesAsync();
+            }
 
             if (carGarages.Any())
             {

@@ -27,7 +27,7 @@ namespace car_management_backend.Repository.Implementations
             return cars;
         }
 
-        public async Task<Car?> GetCarByIdAsync(int carId)
+        public async Task<Car?> GetCarByIdAsync(int? carId)
         {
             var car = await _dbSet
                 .Include(c=>c.CarGarages)

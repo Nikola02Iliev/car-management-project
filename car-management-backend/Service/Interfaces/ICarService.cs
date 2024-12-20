@@ -6,7 +6,7 @@ namespace car_management_backend.Service.Interfaces
     public interface ICarService
     {
         IQueryable<Car> GetCars();
-        Task<Car?> GetCarByIdAsync(int carId);
+        Task<Car?> GetCarByIdAsync(int? carId);
         Task CreateCarAsync(Car car, List<int> garageIds);
         Task UpdateCarAsync(Car car, CarInPutDTO carInPutDTO, List<int> garageIds);
         Task DeleteCarAsync(Car car);

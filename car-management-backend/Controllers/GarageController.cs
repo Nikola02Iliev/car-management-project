@@ -39,7 +39,7 @@ namespace car_management_backend.Controllers
 
         //Get Garage By Id
         [HttpGet("{garageId}")]
-        public async Task<ActionResult<GarageInGetDTO?>> GetGarageByIdAsync(int garageId)
+        public async Task<ActionResult<GarageInGetDTO?>> GetGarageByIdAsync(int? garageId)
         {
             var garage = await _garageService.GetGarageByIdAsync(garageId);
 
@@ -53,9 +53,9 @@ namespace car_management_backend.Controllers
             return Ok(garagesInGetDTO);
         }
 
-        //Update Garage
+        //Update Garage By Id
         [HttpPut("{garageId}")]
-        public async Task<IActionResult> PutGarage(int garageId, GarageInPutDTO garageInPutDTO)
+        public async Task<ActionResult> PutGarage(int garageId, GarageInPutDTO garageInPutDTO)
         {
             var garage = await _garageService.GetGarageByIdAsync(garageId);
 
@@ -97,9 +97,9 @@ namespace car_management_backend.Controllers
             });
         }
 
-        //Delete Garage
+        //Delete Garage By Id
         [HttpDelete("{garageId}")]
-        public async Task<IActionResult> DeleteGarage(int garageId)
+        public async Task<ActionResult> DeleteGarage(int garageId)
         {
             var garage = await _garageService.GetGarageByIdAsync(garageId);
             if (garage == null) 
@@ -109,7 +109,7 @@ namespace car_management_backend.Controllers
 
             await _garageService.DeleteGarageAsync(garage);
 
-            return NoContent();
+            return Ok(true);
         }
 
 

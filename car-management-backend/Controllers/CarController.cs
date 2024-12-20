@@ -37,7 +37,7 @@ namespace car_management_backend.Controllers
 
         //Get Car By Id
         [HttpGet("{carId}")]
-        public async Task<ActionResult<CarInGetDTO?>> GetCarByIdAsync(int carId)
+        public async Task<ActionResult<CarInGetDTO?>> GetCarByIdAsync(int? carId)
         {
             var car = await _carService.GetCarByIdAsync(carId);
 
@@ -72,7 +72,7 @@ namespace car_management_backend.Controllers
                 Model = car.Model,
                 ProductionYear = car.ProductionYear,
                 LicensePlate = car.LicensePlate,
-                Garages = car.CarGarages.Select(cg=>cg.Garage.ConvertGarageToGarageDTOInCarAfterPutResponseDTO()).ToList()
+                Garages = car.CarGarages.Select(cg => cg.Garage.ConvertGarageToGarageDTOInCarAfterPutResponseDTO()).ToList()
             });
         }
 
@@ -100,7 +100,7 @@ namespace car_management_backend.Controllers
 
         //Delete Car By Id
         [HttpDelete("{carId}")]
-        public async Task<IActionResult> DeleteCar(int carId)
+        public async Task<ActionResult> DeleteCar(int carId)
         {
             var car = await _carService.GetCarByIdAsync(carId);
             if (car == null)
@@ -110,7 +110,7 @@ namespace car_management_backend.Controllers
 
             await _carService.DeleteCarAsync(car);
 
-            return NoContent();
+            return Ok(true);
         }
 
 

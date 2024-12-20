@@ -24,7 +24,7 @@ namespace car_management_backend.Repository.Implementations
             return garages;
         }
 
-        public async Task<Garage?> GetGarageByIdAsync(int garageId)
+        public async Task<Garage?> GetGarageByIdAsync(int? garageId)
         {
             var garage = await _dbSet.SingleOrDefaultAsync(g => g.GarageId == garageId);
 

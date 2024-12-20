@@ -45,7 +45,7 @@
     "Parameters": [
       {
         "Name": "carId",
-        "Type": "System.Int32",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       }
     ],
@@ -154,7 +154,7 @@
     "Parameters": [
       {
         "Name": "garageId",
-        "Type": "System.Int32",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       }
     ],
@@ -201,6 +201,105 @@
     "Parameters": [
       {
         "Name": "garageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.MaintenanceController",
+    "Method": "GetMaintenances",
+    "RelativePath": "api/Maintenance",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.MaintenanceController",
+    "Method": "PostMaintenance",
+    "RelativePath": "api/Maintenance",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maintenanceInPostDTO",
+        "Type": "car_management_backend.DTOs.MaintenanceDTOs.MaintenanceInPostDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "car_management_backend.DTOs.MaintenanceDTOs.MaintenanceAfterPostResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.MaintenanceController",
+    "Method": "GetMaintenance",
+    "RelativePath": "api/Maintenance/{maintenanceId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maintenanceId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "car_management_backend.Models.Maintenance",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.MaintenanceController",
+    "Method": "PutMaintenance",
+    "RelativePath": "api/Maintenance/{maintenanceId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maintenanceId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "maintenanceInPutDTO",
+        "Type": "car_management_backend.DTOs.MaintenanceDTOs.MaintenanceInPutDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.MaintenanceController",
+    "Method": "DeleteMaintenance",
+    "RelativePath": "api/Maintenance/{maintenanceId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maintenanceId",
         "Type": "System.Int32",
         "IsRequired": true
       }

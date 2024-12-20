@@ -1,5 +1,6 @@
 
 using car_management_backend.Context;
+using car_management_backend.Models;
 using car_management_backend.Repository.Implementations;
 using car_management_backend.Repository.Interfaces;
 using car_management_backend.Service.Implementations;
@@ -27,7 +28,8 @@ namespace car_management_backend
             builder.Services.AddScoped<ICarRepository, CarRepository>();
             builder.Services.AddScoped<ICarService, CarService>();
             builder.Services.AddScoped<ICarGarageRepository, CarGarageRepository>();
-            
+            builder.Services.AddScoped<IMaintenanceRepository, MaintenanceRepository>();
+            builder.Services.AddScoped<IMaintenanceService, MaintenanceService>();
 
             var app = builder.Build();
 

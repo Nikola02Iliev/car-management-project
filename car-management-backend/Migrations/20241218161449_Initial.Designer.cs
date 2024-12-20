@@ -12,8 +12,8 @@ using car_management_backend.Context;
 namespace car_management_backend.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20241217080410_Second")]
-    partial class Second
+    [Migration("20241218161449_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,17 +106,25 @@ namespace car_management_backend.Migrations
 
             modelBuilder.Entity("car_management_backend.Models.Maintenance", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MaintenanceId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaintenanceId"));
 
                     b.Property<int?>("CarId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CarName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("GarageId")
                         .HasColumnType("int");
+
+                    b.Property<string>("GarageName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ScheduledDate")
                         .HasColumnType("datetime2");
@@ -125,11 +133,7 @@ namespace car_management_backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarId");
-
-                    b.HasIndex("GarageId");
+                    b.HasKey("MaintenanceId");
 
                     b.ToTable("Maintenances");
                 });
@@ -142,21 +146,6 @@ namespace car_management_backend.Migrations
 
                     b.HasOne("car_management_backend.Models.Garage", "Garage")
                         .WithMany("CarGarages")
-                        .HasForeignKey("GarageId");
-
-                    b.Navigation("Car");
-
-                    b.Navigation("Garage");
-                });
-
-            modelBuilder.Entity("car_management_backend.Models.Maintenance", b =>
-                {
-                    b.HasOne("car_management_backend.Models.Car", "Car")
-                        .WithMany()
-                        .HasForeignKey("CarId");
-
-                    b.HasOne("car_management_backend.Models.Garage", "Garage")
-                        .WithMany()
                         .HasForeignKey("GarageId");
 
                     b.Navigation("Car");
