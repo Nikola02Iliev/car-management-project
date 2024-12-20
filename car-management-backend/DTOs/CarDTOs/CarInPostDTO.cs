@@ -4,6 +4,7 @@ namespace car_management_backend.DTOs.CarDTOs
 {
     public class CarInPostDTO
     {
+
         public string Make { get; set; } = string.Empty;
         public string Model { get; set; } = string.Empty;
         public int? ProductionYear { get; set; }
