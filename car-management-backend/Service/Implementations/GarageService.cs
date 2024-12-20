@@ -2,6 +2,7 @@
 using car_management_backend.Models;
 using car_management_backend.Repository.Interfaces;
 using car_management_backend.Service.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace car_management_backend.Service.Implementations
 {
@@ -65,6 +66,18 @@ namespace car_management_backend.Service.Implementations
             await _garageRepository.SaveChangesAsync();
         }
 
+        public async Task<List<int>> GetAllGarageIdsAsync()
+        {
+            var garagesIds = await _garageRepository.GetGarages().Select(g => g.GarageId).ToListAsync();
 
+            return garagesIds;
+        }
+
+        public async Task<List<int?>> GetAllGarageIdsAsyncForCar(int carId)
+        {
+            var garageIds = await _carGarageRepository.GetGarageIdsForCar(carId);
+
+            return garageIds;
+        }
     }
 }

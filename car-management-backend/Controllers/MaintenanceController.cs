@@ -36,7 +36,7 @@ namespace car_management_backend.Controllers
 
         //Get Maintenance By Id
         [HttpGet("{maintenanceId}")]
-        public async Task<ActionResult<Maintenance>> GetMaintenance(int maintenanceId)
+        public async Task<ActionResult<Maintenance>> GetMaintenanceByIdAsync(int maintenanceId)
         {
             var maintenance = await _maintenanceService.GetMaintenanceByIdAsync(maintenanceId);
 
@@ -59,7 +59,7 @@ namespace car_management_backend.Controllers
 
         //Update Maintenance By Id
         [HttpPut("{maintenanceId}")]
-        public async Task<IActionResult> PutMaintenance(int maintenanceId, MaintenanceInPutDTO maintenanceInPutDTO)
+        public async Task<IActionResult> PutMaintenanceAsync(int maintenanceId, MaintenanceInPutDTO maintenanceInPutDTO)
         {
             var maintenance = await _maintenanceService.GetMaintenanceByIdAsync(maintenanceId);
             if (maintenance == null)
@@ -84,7 +84,7 @@ namespace car_management_backend.Controllers
 
         //Create Maintenance
         [HttpPost]
-        public async Task<ActionResult<MaintenanceAfterPostResponseDTO>> PostMaintenance(MaintenanceInPostDTO maintenanceInPostDTO)
+        public async Task<ActionResult<MaintenanceAfterPostResponseDTO>> PostMaintenanceAsync(MaintenanceInPostDTO maintenanceInPostDTO)
         {
             var maintenance = maintenanceInPostDTO.ConvertMaintenanceInPostDTOToMaintenance();
 
@@ -105,7 +105,7 @@ namespace car_management_backend.Controllers
 
         //Delete Maintenance By Id
         [HttpDelete("{maintenanceId}")]
-        public async Task<IActionResult> DeleteMaintenance(int maintenanceId)
+        public async Task<ActionResult> DeleteMaintenanceAsync(int maintenanceId)
         {
             var maintenance = await _maintenanceService.GetMaintenanceByIdAsync(maintenanceId);
 
@@ -116,7 +116,7 @@ namespace car_management_backend.Controllers
 
             await _maintenanceService.DeleteMaintenanceAsync(maintenance);
 
-            return NoContent();
+            return Ok(true);
         }
 
     }

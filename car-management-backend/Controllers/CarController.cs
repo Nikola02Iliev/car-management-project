@@ -18,10 +18,12 @@ namespace car_management_backend.Controllers
     public class CarController : ControllerBase
     {
         private readonly ICarService _carService;
+        private readonly IGarageService _garageService;
 
-        public CarController(ICarService carService)
+        public CarController(ICarService carService, IGarageService garageService)
         {
             _carService = carService;
+            _garageService = garageService;
         }
 
         //Get All Cars
@@ -53,15 +55,28 @@ namespace car_management_backend.Controllers
 
         //Update Car By Id
         [HttpPut("{carId}")]
-        public async Task<ActionResult<CarAfterPutResponseDTO>> PutCar(int carId, CarInPutDTO carInPutDTO)
+        public async Task<ActionResult<CarAfterPutResponseDTO>> PutCarAsync(int carId, CarInPutDTO carInPutDTO)
         {
             var garageIds = carInPutDTO.GaragesIds;
 
             var car = await _carService.GetCarByIdAsync(carId);
+
+            var currentGarageIds = await _garageService.GetAllGarageIdsAsyncForCar(carId);
+
             if (car == null)
             {
                 return NotFound($"No car found with id {carId}!");
             }
+
+            foreach(var garageId in garageIds)
+            {
+                if (currentGarageIds.Contains(garageId))
+                {
+                    return BadRequest($"There is already a garage with id {garageId}!");
+
+                }
+            }
+
 
             await _carService.UpdateCarAsync(car, carInPutDTO, garageIds);
             
@@ -78,10 +93,21 @@ namespace car_management_backend.Controllers
 
         //Create Car
         [HttpPost]
-        public async Task<ActionResult<CarAfterPostResponseDTO>> PostCar(CarInPostDTO carInPostDTO)
+        public async Task<ActionResult<CarAfterPostResponseDTO>> PostCarAsync(CarInPostDTO carInPostDTO)
         {
             var garageIds = carInPostDTO.GaragesIds;
-            
+
+            var allGarageIds = await _garageService.GetAllGarageIdsAsync();
+
+            foreach(var garageId in garageIds)
+            {
+                if (!allGarageIds.Contains(garageId))
+                {
+                    return NotFound($"No garage found with id {garageId}!");
+
+                }
+            }
+
             var car = carInPostDTO.ConvertCarInPostDTOToCar();
 
             await _carService.CreateCarAsync(car, garageIds);
@@ -100,7 +126,7 @@ namespace car_management_backend.Controllers
 
         //Delete Car By Id
         [HttpDelete("{carId}")]
-        public async Task<ActionResult> DeleteCar(int carId)
+        public async Task<ActionResult> DeleteCarAsync(int carId)
         {
             var car = await _carService.GetCarByIdAsync(carId);
             if (car == null)

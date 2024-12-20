@@ -605,24 +605,34 @@
         "additionalProperties": false
       },
       "CarInPostDTO": {
+        "required": [
+          "licensePlate",
+          "make",
+          "model",
+          "productionYear"
+        ],
         "type": "object",
         "properties": {
           "make": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
           },
           "model": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
           },
           "productionYear": {
+            "maximum": 15,
+            "minimum": 0,
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "licensePlate": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 13,
+            "minLength": 0,
+            "type": "string"
           },
           "garagesIds": {
             "type": "array",
@@ -835,24 +845,34 @@
         "additionalProperties": false
       },
       "GarageInPutDTO": {
+        "required": [
+          "capacity",
+          "city",
+          "location",
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
           },
           "location": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
           },
           "city": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
           },
           "capacity": {
+            "maximum": 15,
+            "minimum": 0,
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           }
         },
         "additionalProperties": false
