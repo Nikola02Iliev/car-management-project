@@ -46,6 +46,13 @@ namespace car_management_backend.Repository.Implementations
             return garageIds;
         }
 
+        public async Task<List<Car>> GetCarsInGarage(int garageId)
+        {
+            var carsInGarage = await _dbSet.Where(cg => cg.GarageId == garageId).Select(cg=>cg.Car).ToListAsync();
+
+            return carsInGarage;
+        }
+
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();

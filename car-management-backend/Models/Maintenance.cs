@@ -6,7 +6,7 @@
         public string ServiceType { get; set; } = string.Empty;
         public string CarName { get; set; } = string.Empty;
         public string GarageName {  get; set; } = string.Empty;
-        public DateTime ScheduledDate {  get; set; }
+        public DateOnly ScheduledDate {  get; set; }
         public int? CarId { get; set; }
         public int? GarageId { get; set; }
 

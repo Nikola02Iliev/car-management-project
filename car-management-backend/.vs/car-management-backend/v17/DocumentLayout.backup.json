@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Projects\\car-management-project\\car-management-backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\controllers\\maintenancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:controllers\\maintenancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\repository\\interfaces\\icargaragerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:repository\\interfaces\\icargaragerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\dtos\\cardtos\\carinputdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:dtos\\cardtos\\carinputdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\service\\interfaces\\igarageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:service\\interfaces\\igarageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\service\\implementations\\garageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:service\\implementations\\garageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\repository\\implementations\\cargaragerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:repository\\implementations\\cargaragerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\dtos\\cardtos\\carinpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:dtos\\cardtos\\carinpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IGarageService.cs",
-              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Service\\Interfaces\\IGarageService.cs",
-              "RelativeDocumentMoniker": "Service\\Interfaces\\IGarageService.cs",
-              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Service\\Interfaces\\IGarageService.cs",
-              "RelativeToolTip": "Service\\Interfaces\\IGarageService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAUAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T22:21:31.878Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GarageService.cs",
-              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Service\\Implementations\\GarageService.cs",
-              "RelativeDocumentMoniker": "Service\\Implementations\\GarageService.cs",
-              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Service\\Implementations\\GarageService.cs",
-              "RelativeToolTip": "Service\\Implementations\\GarageService.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAuwEsAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T22:21:13.639Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ICarGarageRepository.cs",
-              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Repository\\Interfaces\\ICarGarageRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Interfaces\\ICarGarageRepository.cs",
-              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Repository\\Interfaces\\ICarGarageRepository.cs",
-              "RelativeToolTip": "Repository\\Interfaces\\ICarGarageRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
+              "Title": "CarInPutDTO.cs",
+              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\DTOs\\CarDTOs\\CarInPutDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\CarDTOs\\CarInPutDTO.cs",
+              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\DTOs\\CarDTOs\\CarInPutDTO.cs",
+              "RelativeToolTip": "DTOs\\CarDTOs\\CarInPutDTO.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAA8AAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T22:20:37.924Z",
+              "WhenOpened": "2024-12-22T13:32:59.339Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CarGarageRepository.cs",
-              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Repository\\Implementations\\CarGarageRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Implementations\\CarGarageRepository.cs",
-              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Repository\\Implementations\\CarGarageRepository.cs",
-              "RelativeToolTip": "Repository\\Implementations\\CarGarageRepository.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAowAgAAAA7AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "CarInPostDTO.cs",
+              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\DTOs\\CarDTOs\\CarInPostDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\CarDTOs\\CarInPostDTO.cs",
+              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\DTOs\\CarDTOs\\CarInPostDTO.cs",
+              "RelativeToolTip": "DTOs\\CarDTOs\\CarInPostDTO.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABAAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T22:20:11.848Z",
+              "WhenOpened": "2024-12-22T13:32:23.59Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CarController.cs",
-              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Controllers\\CarController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CarController.cs",
-              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Controllers\\CarController.cs",
-              "RelativeToolTip": "Controllers\\CarController.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAswFsAAAAIAAAAAAAAAA==",
+              "Title": "MaintenanceController.cs",
+              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Controllers\\MaintenanceController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MaintenanceController.cs",
+              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Controllers\\MaintenanceController.cs",
+              "RelativeToolTip": "Controllers\\MaintenanceController.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAAHUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T22:16:25.869Z",
+              "WhenOpened": "2024-12-22T13:26:46.705Z",
               "EditorCaption": ""
             }
           ]

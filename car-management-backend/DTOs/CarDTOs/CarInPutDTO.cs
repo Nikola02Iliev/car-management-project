@@ -13,7 +13,7 @@ namespace car_management_backend.DTOs.CarDTOs
         public string Model { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Production year is required!")]
-        [Range(0, 15, ErrorMessage = "Production year must be between 0 and 15!")]
+        [Range(0, 2024, ErrorMessage = "Production year must be between 0 and 2024!")]
         public int? ProductionYear { get; set; }
 
         [Required(ErrorMessage = "License plate is required!")]

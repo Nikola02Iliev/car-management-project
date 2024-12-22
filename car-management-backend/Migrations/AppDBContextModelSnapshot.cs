@@ -123,8 +123,8 @@ namespace car_management_backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ScheduledDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("ScheduledDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("ServiceType")
                         .IsRequired()

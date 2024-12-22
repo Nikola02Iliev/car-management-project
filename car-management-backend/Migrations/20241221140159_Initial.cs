@@ -52,7 +52,7 @@ namespace car_management_backend.Migrations
                     ServiceType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CarName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GarageName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ScheduledDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ScheduledDate = table.Column<DateOnly>(type: "date", nullable: false),
                     CarId = table.Column<int>(type: "int", nullable: true),
                     GarageId = table.Column<int>(type: "int", nullable: true)
                 },

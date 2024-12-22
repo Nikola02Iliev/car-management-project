@@ -9,7 +9,7 @@ namespace car_management_backend.Mappers
         {
             return new Maintenance
             {
-                ScheduledDate = maintenanceInPostDTO.ScheduledDate,
+                ScheduledDate = DateOnly.Parse(maintenanceInPostDTO.ScheduledDate),
                 ServiceType = maintenanceInPostDTO.ServiceType,
                 GarageId = maintenanceInPostDTO.GarageId,
                 CarId = maintenanceInPostDTO.CarId

@@ -105,5 +105,12 @@ namespace car_management_backend.Service.Implementations
             _carRepository.DeleteCar(car);
             await _carRepository.SaveChangesAsync();
         }
+
+        public async Task<List<Car>> GetCarsInGarageAsync(int garageId)
+        {
+            var carsInGarage = await _carGarageRepository.GetCarsInGarage(garageId);
+
+            return carsInGarage;
+        }
     }
 }

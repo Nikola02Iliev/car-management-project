@@ -2,6 +2,7 @@
 using car_management_backend.Models;
 using car_management_backend.Repository.Interfaces;
 using car_management_backend.Service.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace car_management_backend.Service.Implementations
 {
@@ -62,6 +63,13 @@ namespace car_management_backend.Service.Implementations
             _maintenanceRepository.DeleteMaintenance(maintenance);
 
             await _maintenanceRepository.SaveChangesAsync();
+        }
+
+        public Task<List<DateOnly>> GetAllScheduledDatesInGarage(int garageId)
+        {
+            var scheduledDates = _maintenanceRepository.GetMaintenances().Select(m => m.ScheduledDate).ToListAsync();
+
+            return scheduledDates;
         }
     }
 }

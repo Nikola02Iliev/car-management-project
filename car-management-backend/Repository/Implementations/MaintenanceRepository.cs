@@ -38,7 +38,7 @@ namespace car_management_backend.Repository.Implementations
 
         public void UpdateMaintenance(Maintenance maintenance, MaintenanceInPutDTO maintenanceInPutDTO)
         {
-            maintenance.ScheduledDate = maintenanceInPutDTO.ScheduledDate;
+            maintenance.ScheduledDate = DateOnly.Parse(maintenanceInPutDTO.ScheduledDate);
             maintenance.ServiceType = maintenanceInPutDTO.ServiceType;
             maintenance.CarId = maintenanceInPutDTO.CarId;
             maintenance.GarageId = maintenanceInPutDTO.GarageId;

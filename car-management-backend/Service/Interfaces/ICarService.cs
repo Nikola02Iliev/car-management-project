@@ -10,5 +10,6 @@ namespace car_management_backend.Service.Interfaces
         Task CreateCarAsync(Car car, List<int> garageIds);
         Task UpdateCarAsync(Car car, CarInPutDTO carInPutDTO, List<int> garageIds);
         Task DeleteCarAsync(Car car);
+        Task<List<Car>> GetCarsInGarageAsync(int garageId);
     }
 }

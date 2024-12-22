@@ -12,7 +12,7 @@ using car_management_backend.Context;
 namespace car_management_backend.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20241218161449_Initial")]
+    [Migration("20241221140159_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -126,8 +126,8 @@ namespace car_management_backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ScheduledDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("ScheduledDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("ServiceType")
                         .IsRequired()

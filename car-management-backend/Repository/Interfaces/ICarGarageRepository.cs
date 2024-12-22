@@ -9,6 +9,7 @@ namespace car_management_backend.Repository.Interfaces
         Task<List<CarGarage>> GetCarGaragesForGarage(int garageId);
         void DeleteCarGarages(List<CarGarage> carGarages);
         Task<List<int?>> GetGarageIdsForCar(int carId);
+        Task<List<Car>> GetCarsInGarage(int garageId);
         Task SaveChangesAsync();
     }
 }

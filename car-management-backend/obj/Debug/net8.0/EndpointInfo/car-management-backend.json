@@ -606,6 +606,7 @@
       },
       "CarInPostDTO": {
         "required": [
+          "garagesIds",
           "licensePlate",
           "make",
           "model",
@@ -624,7 +625,7 @@
             "type": "string"
           },
           "productionYear": {
-            "maximum": 15,
+            "maximum": 2024,
             "minimum": 0,
             "type": "integer",
             "format": "int32"
@@ -639,39 +640,48 @@
             "items": {
               "type": "integer",
               "format": "int32"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
       },
       "CarInPutDTO": {
+        "required": [
+          "garagesIds",
+          "licensePlate",
+          "make",
+          "model",
+          "productionYear"
+        ],
         "type": "object",
         "properties": {
           "make": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
           },
           "model": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
           },
           "productionYear": {
+            "maximum": 2024,
+            "minimum": 0,
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "licensePlate": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
           },
           "garagesIds": {
             "type": "array",
             "items": {
               "type": "integer",
               "format": "int32"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -898,7 +908,7 @@
           },
           "scheduledDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "carId": {
             "type": "integer",
@@ -934,7 +944,7 @@
           },
           "scheduledDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "carId": {
             "type": "integer",
@@ -950,15 +960,22 @@
         "additionalProperties": false
       },
       "MaintenanceInPostDTO": {
+        "required": [
+          "carId",
+          "garageId",
+          "serviceType"
+        ],
         "type": "object",
         "properties": {
           "scheduledDate": {
             "type": "string",
-            "format": "date-time"
+            "default": "yyyy-MM-dd",
+            "nullable": true
           },
           "serviceType": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
           },
           "garageId": {
             "type": "integer",
@@ -972,15 +989,22 @@
         "additionalProperties": false
       },
       "MaintenanceInPutDTO": {
+        "required": [
+          "carId",
+          "garageId",
+          "serviceType"
+        ],
         "type": "object",
         "properties": {
           "scheduledDate": {
             "type": "string",
-            "format": "date-time"
+            "default": "yyyy-MM-dd",
+            "nullable": true
           },
           "serviceType": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
           },
           "garageId": {
             "type": "integer",
