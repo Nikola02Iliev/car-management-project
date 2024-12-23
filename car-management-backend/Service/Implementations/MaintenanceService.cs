@@ -43,7 +43,20 @@ namespace car_management_backend.Service.Implementations
 
             await _maintenanceRepository.CreateMaintenanceAsync(maintenance);
 
+            if(garage.Capacity == 0)
+            {
+                garage.Capacity = 0;
+            }
+            else
+            {
+                garage.Capacity--;
+            }
+
+            
+
             await _maintenanceRepository.SaveChangesAsync();
+
+            await _garageRepository.SaveChangesAsync();
         }
 
         public async Task UpdateMaintenanceAsync(Maintenance maintenance, MaintenanceInPutDTO maintenanceInPutDTO)
@@ -60,16 +73,25 @@ namespace car_management_backend.Service.Implementations
 
         public async Task DeleteMaintenanceAsync(Maintenance maintenance)
         {
+            var garage = await _garageRepository.GetGarageByIdAsync(maintenance.GarageId);
+
             _maintenanceRepository.DeleteMaintenance(maintenance);
 
+            garage.Capacity++;
+           
             await _maintenanceRepository.SaveChangesAsync();
+
+            await _garageRepository.SaveChangesAsync();
+
         }
 
-        public Task<List<DateOnly>> GetAllScheduledDatesInGarage(int garageId)
+        public async Task<List<DateOnly>> GetAllScheduledDatesInGarage(int garageId)
         {
-            var scheduledDates = _maintenanceRepository.GetMaintenances().Select(m => m.ScheduledDate).ToListAsync();
+            var garage = await _garageRepository.GetGarageByIdAsync(garageId);
 
-            return scheduledDates;
+            var scheduledDatesInGarage = await _maintenanceRepository.GetMaintenances().Where(m=>m.GarageId == garageId).Select(m => m.ScheduledDate).ToListAsync();
+
+            return scheduledDatesInGarage;
         }
     }
 }

@@ -2,7 +2,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.CarController",
     "Method": "GetCars",
-    "RelativePath": "api/Car",
+    "RelativePath": "cars",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -12,7 +12,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.CarController",
     "Method": "PostCarAsync",
-    "RelativePath": "api/Car",
+    "RelativePath": "cars",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -38,7 +38,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.CarController",
     "Method": "GetCarByIdAsync",
-    "RelativePath": "api/Car/{carId}",
+    "RelativePath": "cars/{carId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -64,7 +64,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.CarController",
     "Method": "PutCarAsync",
-    "RelativePath": "api/Car/{carId}",
+    "RelativePath": "cars/{carId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -95,7 +95,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.CarController",
     "Method": "DeleteCarAsync",
-    "RelativePath": "api/Car/{carId}",
+    "RelativePath": "cars/{carId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -111,7 +111,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.GarageController",
     "Method": "GetGarages",
-    "RelativePath": "api/Garage",
+    "RelativePath": "garages",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -121,7 +121,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.GarageController",
     "Method": "PostGarageAsync",
-    "RelativePath": "api/Garage",
+    "RelativePath": "garages",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -147,7 +147,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.GarageController",
     "Method": "GetGarageByIdAsync",
-    "RelativePath": "api/Garage/{garageId}",
+    "RelativePath": "garages/{garageId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -173,7 +173,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.GarageController",
     "Method": "PutGarageAsync",
-    "RelativePath": "api/Garage/{garageId}",
+    "RelativePath": "garages/{garageId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -194,7 +194,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.GarageController",
     "Method": "DeleteGarageAsync",
-    "RelativePath": "api/Garage/{garageId}",
+    "RelativePath": "garages/{garageId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -210,7 +210,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.MaintenanceController",
     "Method": "GetMaintenances",
-    "RelativePath": "api/Maintenance",
+    "RelativePath": "maintenances",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -220,7 +220,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.MaintenanceController",
     "Method": "PostMaintenanceAsync",
-    "RelativePath": "api/Maintenance",
+    "RelativePath": "maintenances",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -246,7 +246,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.MaintenanceController",
     "Method": "GetMaintenanceByIdAsync",
-    "RelativePath": "api/Maintenance/{maintenanceId}",
+    "RelativePath": "maintenances/{maintenanceId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -272,7 +272,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.MaintenanceController",
     "Method": "PutMaintenanceAsync",
-    "RelativePath": "api/Maintenance/{maintenanceId}",
+    "RelativePath": "maintenances/{maintenanceId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -293,7 +293,7 @@
   {
     "ContainingType": "car_management_backend.Controllers.MaintenanceController",
     "Method": "DeleteMaintenanceAsync",
-    "RelativePath": "api/Maintenance/{maintenanceId}",
+    "RelativePath": "maintenances/{maintenanceId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

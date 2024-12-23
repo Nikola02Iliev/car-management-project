@@ -15,7 +15,7 @@ using System.Globalization;
 
 namespace car_management_backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("maintenances")]
     [ApiController]
     public class MaintenanceController : ControllerBase
     {
@@ -78,6 +78,9 @@ namespace car_management_backend.Controllers
                 return NotFound($"No garage found with id {maintenanceInPutDTO.GarageId}!");
             }
 
+            
+            
+
             var car = await _carService.GetCarByIdAsync(maintenanceInPutDTO.CarId);
 
             var carsInGarage = await _carService.GetCarsInGarageAsync(garage.GarageId);
@@ -86,6 +89,13 @@ namespace car_management_backend.Controllers
             {
                 return NotFound($"No car with id {maintenanceInPutDTO.CarId} found in garage with id {maintenanceInPutDTO.GarageId}!");
 
+            }
+
+            var carsInMaintenanceInGarage = await _carService.GetCarIdsInMaintenanceInGarage(garage.GarageId);
+
+            if (carsInMaintenanceInGarage.Contains(car.CarId))
+            {
+                return BadRequest($"Car with id {maintenanceInPutDTO.CarId} is already in maintenance in garage with id {maintenanceInPutDTO.GarageId}!");
             }
 
             List<DateOnly> allScheduledDatesInGarage = await _maintenanceService.GetAllScheduledDatesInGarage(garage.GarageId);
@@ -141,6 +151,11 @@ namespace car_management_backend.Controllers
                 return NotFound($"No garage found with id {maintenanceInPostDTO.GarageId}!");
             }
 
+            if(garage.Capacity == 0)
+            {
+                return BadRequest("No capacity for another car!");
+            }
+
             var car = await _carService.GetCarByIdAsync(maintenanceInPostDTO.CarId);
 
             var carsInGarage = await _carService.GetCarsInGarageAsync(garage.GarageId);
@@ -149,6 +164,13 @@ namespace car_management_backend.Controllers
             {
                 return NotFound($"No car with id {maintenanceInPostDTO.CarId} found in garage with id {maintenanceInPostDTO.GarageId}!");
 
+            }
+
+            var carsInMaintenanceInGarage = await _carService.GetCarIdsInMaintenanceInGarage(garage.GarageId);
+
+            if (carsInMaintenanceInGarage.Contains(car.CarId))
+            {
+                return BadRequest($"Car with id {maintenanceInPostDTO.CarId} is already in maintenance in garage with id {maintenanceInPostDTO.GarageId}!");
             }
 
             List<DateOnly> allScheduledDatesInGarage = await _maintenanceService.GetAllScheduledDatesInGarage(garage.GarageId);

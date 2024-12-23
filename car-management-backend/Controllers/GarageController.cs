@@ -13,7 +13,7 @@ using car_management_backend.DTOs.GarageDTOs;
 
 namespace car_management_backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("garages")]
     [ApiController]
     public class GarageController : ControllerBase
     {

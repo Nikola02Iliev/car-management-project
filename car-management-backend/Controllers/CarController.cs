@@ -13,7 +13,7 @@ using car_management_backend.DTOs.CarDTOs;
 
 namespace car_management_backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("cars")]
     [ApiController]
     public class CarController : ControllerBase
     {

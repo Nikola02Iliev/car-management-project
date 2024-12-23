@@ -31,6 +31,19 @@ namespace car_management_backend
             builder.Services.AddScoped<IMaintenanceRepository, MaintenanceRepository>();
             builder.Services.AddScoped<IMaintenanceService, MaintenanceService>();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowReactApp", policy =>
+                {
+                    policy.WithOrigins("http://localhost:3000") // Add your React app's URL
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
+            builder.Services.AddControllers();
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -42,8 +55,9 @@ namespace car_management_backend
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseCors("AllowReactApp");
 
+            app.UseAuthorization();
 
             app.MapControllers();
 

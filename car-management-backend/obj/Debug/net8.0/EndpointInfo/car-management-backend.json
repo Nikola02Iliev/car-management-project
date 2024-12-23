@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Car": {
+    "/cars": {
       "get": {
         "tags": [
           "Car"
@@ -63,7 +63,7 @@
         }
       }
     },
-    "/api/Car/{carId}": {
+    "/cars/{carId}": {
       "get": {
         "tags": [
           "Car"
@@ -181,7 +181,7 @@
         }
       }
     },
-    "/api/Garage": {
+    "/garages": {
       "get": {
         "tags": [
           "Garage"
@@ -239,7 +239,7 @@
         }
       }
     },
-    "/api/Garage/{garageId}": {
+    "/garages/{garageId}": {
       "get": {
         "tags": [
           "Garage"
@@ -340,7 +340,7 @@
         }
       }
     },
-    "/api/Maintenance": {
+    "/maintenances": {
       "get": {
         "tags": [
           "Maintenance"
@@ -398,7 +398,7 @@
         }
       }
     },
-    "/api/Maintenance/{maintenanceId}": {
+    "/maintenances/{maintenanceId}": {
       "get": {
         "tags": [
           "Maintenance"

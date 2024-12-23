@@ -112,5 +112,14 @@ namespace car_management_backend.Service.Implementations
 
             return carsInGarage;
         }
+
+        public async Task<List<int?>> GetCarIdsInMaintenanceInGarage(int garageId)
+        {
+            var carIds = await _maintenanceRepository.GetMaintenances().Where(m => m.GarageId == garageId).Select(m => m.CarId).ToListAsync();
+
+            return carIds;
+        }
+
+        
     }
 }
