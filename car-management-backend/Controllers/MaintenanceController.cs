@@ -79,8 +79,6 @@ namespace car_management_backend.Controllers
                 return NotFound($"No garage found with id {maintenanceInPutDTO.GarageId}!");
             }
 
-            
-            
 
             var car = await _carService.GetCarByIdAsync(maintenanceInPutDTO.CarId);
 
@@ -99,7 +97,6 @@ namespace car_management_backend.Controllers
                 return BadRequest($"Car with id {maintenanceInPutDTO.CarId} is already in maintenance in garage with id {maintenanceInPutDTO.GarageId}!");
             }
 
-            List<DateOnly> allScheduledDatesInGarage = await _maintenanceService.GetAllScheduledDatesInGarage(garage.GarageId);
             string format = "yyyy-MM-dd";
             DateOnly dateOnly = new DateOnly();
             DateTime dateTimeNow = DateTime.Now;
@@ -119,11 +116,6 @@ namespace car_management_backend.Controllers
             if (dateOnlyToday > dateOnly)
             {
                 return BadRequest("You can't request maintenance before today!");
-            }
-
-            if (allScheduledDatesInGarage.Contains(dateOnly))
-            {
-                return BadRequest("This schedule date is already reserved!");
             }
 
             await _maintenanceService.UpdateMaintenanceAsync(maintenance, maintenanceInPutDTO);
@@ -174,7 +166,6 @@ namespace car_management_backend.Controllers
                 return BadRequest($"Car with id {maintenanceInPostDTO.CarId} is already in maintenance in garage with id {maintenanceInPostDTO.GarageId}!");
             }
 
-            List<DateOnly> allScheduledDatesInGarage = await _maintenanceService.GetAllScheduledDatesInGarage(garage.GarageId);
             string format = "yyyy-MM-dd";
             DateOnly dateOnly = new DateOnly();
             DateTime dateTimeNow = DateTime.Now;
@@ -195,12 +186,6 @@ namespace car_management_backend.Controllers
             {
                 return BadRequest("You can't request maintenance before today!");
             }
-
-            if (allScheduledDatesInGarage.Contains(dateOnly))
-            {
-                return BadRequest("This schedule date is already reserved!");
-            }
-
 
             var maintenance = maintenanceInPostDTO.ConvertMaintenanceInPostDTOToMaintenance();
 

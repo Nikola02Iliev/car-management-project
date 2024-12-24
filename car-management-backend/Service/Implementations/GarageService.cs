@@ -5,6 +5,7 @@ using car_management_backend.Repository.Interfaces;
 using car_management_backend.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace car_management_backend.Service.Implementations
 {
@@ -86,7 +87,6 @@ namespace car_management_backend.Service.Implementations
 
             return garageIds;
         }
-
         
     }
 }

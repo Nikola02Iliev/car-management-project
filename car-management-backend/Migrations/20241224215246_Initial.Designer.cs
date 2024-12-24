@@ -12,7 +12,7 @@ using car_management_backend.Context;
 namespace car_management_backend.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20241223214132_Initial")]
+    [Migration("20241224215246_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

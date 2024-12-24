@@ -14,5 +14,6 @@ namespace car_management_backend.Service.Interfaces
         Task DeleteGarageAsync(Garage garage);
         Task<List<int>> GetAllGarageIdsAsync();
         Task<List<int?>> GetAllGarageIdsAsyncForCar(int carId);
+
     }
 }

@@ -13,7 +13,6 @@ namespace car_management_backend.Repository.Interfaces
         void DeleteMaintenances(List<Maintenance> maintenances);
         Task<List<Maintenance>> GetMaintenancesForGarage(int garageId);
         Task<List<Maintenance>> GetMaintenancesForCar(int carId);
-
         Task SaveChangesAsync();
 
     }

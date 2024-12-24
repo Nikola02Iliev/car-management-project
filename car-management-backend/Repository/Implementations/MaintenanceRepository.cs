@@ -56,7 +56,7 @@ namespace car_management_backend.Repository.Implementations
 
         public async Task<List<Maintenance>> GetMaintenancesForGarage(int garageId)
         {
-            var maintenances = await _dbSet.Where(m=>m.GarageId == garageId).ToListAsync();
+            var maintenances = await _dbSet.Where(m => m.GarageId == garageId).ToListAsync();
 
             return maintenances;
         }

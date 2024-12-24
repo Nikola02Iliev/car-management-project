@@ -70,6 +70,15 @@ namespace car_management_backend.Service.Implementations
                 };
 
                 car.CarGarages.Add(carGarage);
+
+                if(garage.Capacity == 0)
+                {
+                    garage.Capacity = 0;
+                }
+                else
+                {
+                    garage.Capacity--;
+                }
             }
 
             await _carRepository.CreateCarAsync(car);
@@ -79,38 +88,65 @@ namespace car_management_backend.Service.Implementations
 
         public async Task UpdateCarAsync(Car car, CarInPutDTO carInPutDTO, List<int> garageIds)
         {
-            var currentCarGarages = car.CarGarages.ToList();
 
-            foreach (var carGarage in currentCarGarages)
+            var carGaragesToRemove = car.CarGarages.Where(carGarage => !garageIds.Contains(carGarage.Garage.GarageId)).ToList();
+
+            foreach (var carGarage in carGaragesToRemove)
             {
-                if (!garageIds.Contains(carGarage.Garage.GarageId))
+                carGarage.Garage.Capacity++;
+                car.CarGarages.Remove(carGarage);
+            }
+
+            if (carGaragesToRemove.Any())
+            {
+                await _carGarageRepository.SaveChangesAsync();
+
+                var garages = _garageRepository.GetGarages().Where(g => garageIds.Contains(g.GarageId)).ToList();
+
+                foreach (var garage in garages)
                 {
-                    car.CarGarages.Remove(carGarage);
+
+                    if (car.CarGarages.Any(cg => cg.Garage.GarageId == garage.GarageId))
+                        continue;
+
+                    // Add new CarGarage relationship
+                    var carGarage = new CarGarage
+                    {
+                        Car = car,
+                        Garage = garage
+                    };
+
+                    car.CarGarages.Add(carGarage);
+
+
+                    if (garage.Capacity > 0)
+                    {
+                        garage.Capacity--;
+                    }
                 }
-            }
 
-            var garages = _garageRepository.GetGarages().Where(g => garageIds.Contains(g.GarageId)).ToList();
-
-            foreach (var garage in garages)
-            {
-                var carGarage = new CarGarage
+                if (garages.Any())
                 {
-                    Car = car,
-                    Garage = garage
-                };
+                    await _garageRepository.SaveChangesAsync();
+                }
 
-                car.CarGarages.Add(carGarage);
+                _carRepository.UpdateCar(car, carInPutDTO);
+
+                await _carRepository.SaveChangesAsync();
             }
-
-            _carRepository.UpdateCar(car, carInPutDTO);
-
-            await _carRepository.SaveChangesAsync();
         }
+
 
         public async Task DeleteCarAsync(Car car)
         {
             var carGarages = await _carGarageRepository.GetCarGaragesForCar(car.CarId);
             var maintenances = await _maintenanceRepository.GetMaintenancesForCar(car.CarId);
+
+            foreach (var carGarage in carGarages)
+            {
+                carGarage.Garage.Capacity++;
+                await _carGarageRepository.SaveChangesAsync();
+            }
 
             if (maintenances.Any())
             {
@@ -123,8 +159,10 @@ namespace car_management_backend.Service.Implementations
                 _carGarageRepository.DeleteCarGarages(carGarages);
                 await _carGarageRepository.SaveChangesAsync(); 
             }
+            
 
             _carRepository.DeleteCar(car);
+
             await _carRepository.SaveChangesAsync();
         }
 

@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Projects\\car-management-project\\car-management-backend\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\service\\implementations\\carservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:service\\implementations\\carservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\models\\cargarage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:models\\cargarage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CarController.cs",
+              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Controllers\\CarController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CarController.cs",
+              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Controllers\\CarController.cs",
+              "RelativeToolTip": "Controllers\\CarController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAuwEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T22:05:51.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CarGarage.cs",
+              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Models\\CarGarage.cs",
+              "RelativeDocumentMoniker": "Models\\CarGarage.cs",
+              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Models\\CarGarage.cs",
+              "RelativeToolTip": "Models\\CarGarage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T21:46:53.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CarService.cs",
+              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Service\\Implementations\\CarService.cs",
+              "RelativeDocumentMoniker": "Service\\Implementations\\CarService.cs",
+              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Service\\Implementations\\CarService.cs",
+              "RelativeToolTip": "Service\\Implementations\\CarService.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAADwv6cAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T21:31:25.206Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

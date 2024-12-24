@@ -69,16 +69,6 @@ namespace car_management_backend.Controllers
                 return NotFound($"No car found with id {carId}!");
             }
 
-            foreach(var garageId in garageIds)
-            {
-                if (currentGarageIds.Contains(garageId))
-                {
-                    return BadRequest($"There is already a garage with id {garageId}!");
-
-                }
-            }
-
-
             await _carService.UpdateCarAsync(car, carInPutDTO, garageIds);
             
             return Ok(new CarAfterPutResponseDTO

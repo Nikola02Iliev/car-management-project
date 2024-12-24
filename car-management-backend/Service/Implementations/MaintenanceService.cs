@@ -69,17 +69,7 @@ namespace car_management_backend.Service.Implementations
 
             await _maintenanceRepository.CreateMaintenanceAsync(maintenance);
 
-            if(garage.Capacity == 0)
-            {
-                garage.Capacity = 0;
-            }
-            else
-            {
-                garage.Capacity--;
-            }
-
             
-
             await _maintenanceRepository.SaveChangesAsync();
 
             await _garageRepository.SaveChangesAsync();
@@ -102,8 +92,6 @@ namespace car_management_backend.Service.Implementations
             var garage = await _garageRepository.GetGarageByIdAsync(maintenance.GarageId);
 
             _maintenanceRepository.DeleteMaintenance(maintenance);
-
-            garage.Capacity++;
            
             await _maintenanceRepository.SaveChangesAsync();
 
