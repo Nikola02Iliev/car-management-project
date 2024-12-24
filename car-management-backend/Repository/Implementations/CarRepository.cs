@@ -21,7 +21,7 @@ namespace car_management_backend.Repository.Implementations
         {
             var cars = _dbSet
                 .Include(c=>c.CarGarages)
-                    .ThenInclude(cg=>cg.Garage)
+                    .ThenInclude(cg => cg.Garage)
                 .AsQueryable();
 
             return cars;

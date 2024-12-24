@@ -10,6 +10,7 @@ using car_management_backend.Models;
 using car_management_backend.Service.Interfaces;
 using car_management_backend.Mappers;
 using car_management_backend.DTOs.GarageDTOs;
+using car_management_backend.Queries;
 
 namespace car_management_backend.Controllers
 {
@@ -28,9 +29,9 @@ namespace car_management_backend.Controllers
 
         //Get All Garages
         [HttpGet]
-        public IActionResult GetGarages()
+        public IActionResult GetGarages([FromQuery] GarageQueries garageQueries)
         {
-            var garages = _garageService.GetGarages();
+            var garages = _garageService.GetGarages(garageQueries);
 
             var garagesInListDTO = garages.Select(g => g.ConvertGarageToGarageInListDTO());
 

@@ -1,7 +1,9 @@
 ﻿using car_management_backend.DTOs.MaintenanceDTOs;
 using car_management_backend.Models;
+using car_management_backend.Queries;
 using car_management_backend.Repository.Interfaces;
 using car_management_backend.Service.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace car_management_backend.Service.Implementations
@@ -19,9 +21,33 @@ namespace car_management_backend.Service.Implementations
             _carRepository = carRepository;
         }
 
-        public IQueryable<Maintenance> GetMaintenances()
+        public IQueryable<Maintenance> GetMaintenances([FromQuery] MaintenanceQueries maintenanceQueries)
         {
             var maintenances = _maintenanceRepository.GetMaintenances();
+
+            if (!string.IsNullOrWhiteSpace(maintenanceQueries.CarName)) 
+            {
+                maintenances = maintenances.Where(m => m.CarName == maintenanceQueries.CarName);
+            }
+
+            if (!string.IsNullOrWhiteSpace(maintenanceQueries.GarageName))
+            {
+                maintenances = maintenances.Where(m => m.GarageName == maintenanceQueries.GarageName);
+            }
+
+            if (!string.IsNullOrWhiteSpace(maintenanceQueries.StartDate))
+            {
+                DateOnly dateOnly = DateOnly.Parse(maintenanceQueries.StartDate);
+
+                maintenances = maintenances.Where(m => m.ScheduledDate >= dateOnly);
+            }
+
+            if (!string.IsNullOrWhiteSpace(maintenanceQueries.EndDate))
+            {
+                DateOnly dateOnly = DateOnly.Parse(maintenanceQueries.EndDate);
+
+                maintenances = maintenances.Where(m => m.ScheduledDate <= dateOnly);
+            }
 
             return maintenances;
         }

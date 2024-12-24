@@ -1,7 +1,9 @@
 ﻿using car_management_backend.DTOs.CarDTOs;
 using car_management_backend.Models;
+using car_management_backend.Queries;
 using car_management_backend.Repository.Interfaces;
 using car_management_backend.Service.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace car_management_backend.Service.Implementations
@@ -21,9 +23,29 @@ namespace car_management_backend.Service.Implementations
             _maintenanceRepository = maintenanceRepository;
         }
 
-        public IQueryable<Car> GetCars() 
+        public IQueryable<Car> GetCars([FromQuery] CarQueries carQueries) 
         {
             var cars = _carRepository.GetCars();
+
+            if (!string.IsNullOrWhiteSpace(carQueries.Make))
+            {
+                cars = cars.Where(c => c.Make == carQueries.Make);
+            }
+
+            if (!string.IsNullOrWhiteSpace(carQueries.Garage?.Name))
+            {
+                cars = cars.Where(c => c.CarGarages.Any(cg => cg.Garage.Name == carQueries.Garage.Name));
+            }
+
+            if (carQueries.FromYear != null)
+            {
+                cars = cars.Where(c => c.ProductionYear >= carQueries.FromYear);
+            }
+
+            if (carQueries.ToYear != null)
+            {
+                cars = cars.Where(c => c.ProductionYear <= carQueries.ToYear);
+            }
 
             return cars;
         }

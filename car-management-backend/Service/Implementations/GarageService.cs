@@ -1,7 +1,9 @@
 ﻿using car_management_backend.DTOs.GarageDTOs;
 using car_management_backend.Models;
+using car_management_backend.Queries;
 using car_management_backend.Repository.Interfaces;
 using car_management_backend.Service.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace car_management_backend.Service.Implementations
@@ -19,9 +21,14 @@ namespace car_management_backend.Service.Implementations
             _maintenanceRepository = maintenanceRepository;
         }
 
-        public IQueryable<Garage> GetGarages()
+        public IQueryable<Garage> GetGarages([FromQuery] GarageQueries garageQueries)
         {
             var garages = _garageRepository.GetGarages();
+
+            if (!string.IsNullOrWhiteSpace(garageQueries.City))
+            {
+                garages = garages.Where(g => g.City == garageQueries.City);
+            }
 
             return garages;
         }

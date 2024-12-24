@@ -10,6 +10,7 @@ using car_management_backend.Models;
 using car_management_backend.Service.Interfaces;
 using car_management_backend.Mappers;
 using car_management_backend.DTOs.CarDTOs;
+using car_management_backend.Queries;
 
 namespace car_management_backend.Controllers
 {
@@ -28,9 +29,9 @@ namespace car_management_backend.Controllers
 
         //Get All Cars
         [HttpGet]
-        public IActionResult GetCars()
+        public IActionResult GetCars([FromQuery] CarQueries carQueries)
         {
-            var cars = _carService.GetCars();
+            var cars = _carService.GetCars(carQueries);
 
             var carsInListDTO = cars.Select(c => c.ConvertCarToCarInListDTO());
 

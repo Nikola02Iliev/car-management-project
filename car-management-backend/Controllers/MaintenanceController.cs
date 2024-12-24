@@ -12,6 +12,7 @@ using car_management_backend.DTOs.MaintenanceDTOs;
 using Microsoft.CodeAnalysis.Operations;
 using car_management_backend.Mappers;
 using System.Globalization;
+using car_management_backend.Queries;
 
 namespace car_management_backend.Controllers
 {
@@ -31,9 +32,9 @@ namespace car_management_backend.Controllers
 
         //Get All Maintenances
         [HttpGet]
-        public IActionResult GetMaintenances()
+        public IActionResult GetMaintenances([FromQuery] MaintenanceQueries maintenanceQueries)
         {
-            var maintenances = _maintenanceService.GetMaintenances();
+            var maintenances = _maintenanceService.GetMaintenances(maintenanceQueries);
 
             return Ok(maintenances);
         }

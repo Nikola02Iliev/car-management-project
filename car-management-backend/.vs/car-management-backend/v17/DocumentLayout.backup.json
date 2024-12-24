@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Projects\\car-management-project\\car-management-backend\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\controllers\\maintenancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:controllers\\maintenancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\service\\implementations\\maintenanceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:service\\implementations\\maintenanceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MaintenanceService.cs",
-              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Service\\Implementations\\MaintenanceService.cs",
-              "RelativeDocumentMoniker": "Service\\Implementations\\MaintenanceService.cs",
-              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Service\\Implementations\\MaintenanceService.cs",
-              "RelativeToolTip": "Service\\Implementations\\MaintenanceService.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAAAE8AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T13:18:47.254Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MaintenanceController.cs",
-              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Controllers\\MaintenanceController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MaintenanceController.cs",
-              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Controllers\\MaintenanceController.cs",
-              "RelativeToolTip": "Controllers\\MaintenanceController.cs",
-              "ViewState": "AgIAAMQAAAAAAAAAAAAAAM0AAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T13:17:36.078Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
