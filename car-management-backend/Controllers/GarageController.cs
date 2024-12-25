@@ -113,6 +113,13 @@ namespace car_management_backend.Controllers
             return Ok(true);
         }
 
+        [HttpGet("dailyAvailabilityReport")]
+        public async Task<IActionResult> GetDailyAvailabilityReport([FromQuery] DailyGarageReportQueries dailyGarageReportQueries)
+        {
+            var reports = await _garageService.GetDailyGarageReports(dailyGarageReportQueries);
+
+            return Ok(reports);
+        }
 
     }
 }

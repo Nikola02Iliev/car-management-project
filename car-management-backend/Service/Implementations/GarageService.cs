@@ -87,6 +87,57 @@ namespace car_management_backend.Service.Implementations
 
             return garageIds;
         }
-        
+
+        public async Task<IQueryable<GarageReportDTO>> GetDailyGarageReports([FromQuery] DailyGarageReportQueries dailyGarageReportQueries)
+        {
+            var garage = await _garageRepository.GetGarageByIdAsync(dailyGarageReportQueries.GarageId);
+            var allScheduledDates = await _maintenanceRepository.GetMaintenances().Where(m => m.GarageId == garage.GarageId).Select(m => m.ScheduledDate).ToListAsync();
+
+            var reports = new List<GarageReportDTO>();
+            var seenDates = new Dictionary<string, int>();
+
+            foreach (var scheduledDate in allScheduledDates)
+            {
+                var formattedDate = scheduledDate.ToString("yyyy-MM-dd");
+
+                if (seenDates.ContainsKey(formattedDate))
+                {
+                    seenDates[formattedDate]++;
+                }
+                else
+                {
+                    seenDates[formattedDate] = 1;
+                }
+            }
+
+            foreach (var entry in seenDates)
+            {
+                var availableCapacity = garage.Capacity - entry.Value;
+
+                var report = new GarageReportDTO
+                {
+                    Date = entry.Key,
+                    Requests = entry.Value,
+                    AvailableCapacity = availableCapacity > 0 ? availableCapacity : 0
+                };
+
+                reports.Add(report);
+            }
+
+            var reportsAsQueryable = reports.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(dailyGarageReportQueries.StartDate))
+            {
+                reportsAsQueryable = reportsAsQueryable.Where(r => DateOnly.Parse(r.Date) >= DateOnly.Parse(dailyGarageReportQueries.StartDate));
+            }
+
+            if (!string.IsNullOrWhiteSpace(dailyGarageReportQueries.EndDate))
+            {
+                reportsAsQueryable = reportsAsQueryable.Where(r => DateOnly.Parse(r.Date) <= DateOnly.Parse(dailyGarageReportQueries.EndDate));
+            }
+
+            return reportsAsQueryable;
+
+        }
     }
 }

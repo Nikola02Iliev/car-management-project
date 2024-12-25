@@ -381,6 +381,45 @@
         }
       }
     },
+    "/garages/dailyAvailabilityReport": {
+      "get": {
+        "tags": [
+          "Garage"
+        ],
+        "parameters": [
+          {
+            "name": "GarageId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "StartDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "EndDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/maintenances": {
       "get": {
         "tags": [

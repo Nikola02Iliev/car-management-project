@@ -235,6 +235,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "car_management_backend.Controllers.GarageController",
+    "Method": "GetDailyAvailabilityReport",
+    "RelativePath": "garages/dailyAvailabilityReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GarageId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "StartDate",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "EndDate",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "car_management_backend.Controllers.MaintenanceController",
     "Method": "GetMaintenances",
     "RelativePath": "maintenances",

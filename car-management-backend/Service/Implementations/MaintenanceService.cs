@@ -94,18 +94,6 @@ namespace car_management_backend.Service.Implementations
             _maintenanceRepository.DeleteMaintenance(maintenance);
            
             await _maintenanceRepository.SaveChangesAsync();
-
-            await _garageRepository.SaveChangesAsync();
-
-        }
-
-        public async Task<List<DateOnly>> GetAllScheduledDatesInGarage(int garageId)
-        {
-            var garage = await _garageRepository.GetGarageByIdAsync(garageId);
-
-            var scheduledDatesInGarage = await _maintenanceRepository.GetMaintenances().Where(m=>m.GarageId == garageId).Select(m => m.ScheduledDate).ToListAsync();
-
-            return scheduledDatesInGarage;
         }
     }
 }

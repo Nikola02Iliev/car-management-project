@@ -12,7 +12,6 @@ namespace car_management_backend.Service.Interfaces
         Task CreateMaintenanceAsync(Maintenance maintenance);
         Task UpdateMaintenanceAsync(Maintenance maintenance, MaintenanceInPutDTO maintenanceInPutDTO);
         Task DeleteMaintenanceAsync(Maintenance maintenance);
-        Task<List<DateOnly>> GetAllScheduledDatesInGarage(int garageId);
         
     }
 }
