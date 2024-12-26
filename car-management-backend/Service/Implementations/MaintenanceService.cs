@@ -3,6 +3,7 @@ using car_management_backend.Models;
 using car_management_backend.Queries;
 using car_management_backend.Repository.Interfaces;
 using car_management_backend.Service.Interfaces;
+using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -94,6 +95,47 @@ namespace car_management_backend.Service.Implementations
             _maintenanceRepository.DeleteMaintenance(maintenance);
            
             await _maintenanceRepository.SaveChangesAsync();
+        }
+
+        public async Task<List<MonthlyRequestsReportDTO>> GetMonthlyGarageReports([FromQuery] MonthlyRequestsReportQueries monthlyRequestsReportQueries)
+        {            
+            List<MonthlyRequestsReportDTO> reports = new List<MonthlyRequestsReportDTO>();
+            var garage = await _garageRepository.GetGarageByIdAsync(monthlyRequestsReportQueries.GarageId);
+
+            var maintenancesInGarage = _maintenanceRepository.GetMaintenances().Where(m => m.GarageId == garage.GarageId);
+
+            DateTime startMonth = DateTime.Parse(monthlyRequestsReportQueries.StartMonth);
+            DateTime endMonth = DateTime.Parse(monthlyRequestsReportQueries.EndMonth);
+
+            DateTime currentMonth = startMonth;
+            
+            while(currentMonth <= endMonth)
+            {
+                var yearMonth = new YearMonthDTO
+                {
+                    Year = currentMonth.Year,
+                    Month = currentMonth.ToString("MMMM").ToUpper(),
+                    LeapYear = DateTime.IsLeapYear(currentMonth.Year),
+                    MonthValue = currentMonth.Month
+                };
+
+                var requestsCount = maintenancesInGarage
+            .Count(m => m.ScheduledDate.Month == currentMonth.Month && m.ScheduledDate.Year == currentMonth.Year);
+
+                var report = new MonthlyRequestsReportDTO
+                {
+                    YearMonth = yearMonth,
+                    Requests = requestsCount
+
+                };
+
+                reports.Add(report);
+                
+                currentMonth = currentMonth.AddMonths(1);
+            }
+
+            return reports;
+
         }
     }
 }

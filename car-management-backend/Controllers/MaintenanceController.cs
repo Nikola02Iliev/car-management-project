@@ -13,6 +13,8 @@ using Microsoft.CodeAnalysis.Operations;
 using car_management_backend.Mappers;
 using System.Globalization;
 using car_management_backend.Queries;
+using Humanizer;
+using Microsoft.SqlServer.Server;
 
 namespace car_management_backend.Controllers
 {
@@ -220,5 +222,51 @@ namespace car_management_backend.Controllers
             return Ok(true);
         }
 
+        [HttpGet("monthlyRequestsReport")]
+        public async Task<IActionResult> GetMonthlyRequestsReport([FromQuery] MonthlyRequestsReportQueries monthlyRequestsReportQueries)
+        {
+            var garage = await _garageService.GetGarageByIdAsync(monthlyRequestsReportQueries.GarageId);
+
+            if (garage == null)
+            {
+                return NotFound($"No garage found with id {monthlyRequestsReportQueries.GarageId}!");
+
+            }
+
+            string format = "yyyy-MM";
+            DateTime startMonth = new DateTime();
+            DateTime endMonth = new DateTime();
+
+            bool IsValidFormatStartMonth = DateTime.TryParseExact(monthlyRequestsReportQueries.StartMonth,
+                format,
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out startMonth);
+
+            bool IsValidFormatEndMonth = DateTime.TryParseExact(monthlyRequestsReportQueries.EndMonth,
+                format,
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out endMonth);
+
+            if (!IsValidFormatStartMonth) 
+            {
+                return BadRequest("Invalid start month format!");
+            }
+
+            if (!IsValidFormatEndMonth)
+            {
+                return BadRequest("Invalid end month format!");
+            }
+
+            if (startMonth > endMonth)
+            {
+                return BadRequest("Star month can't be later than end month!");
+            }
+            var reports = await _maintenanceService.GetMonthlyGarageReports(monthlyRequestsReportQueries);
+
+
+            return Ok(reports);
+        }
     }
 }

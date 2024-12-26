@@ -11,6 +11,8 @@ using car_management_backend.Service.Interfaces;
 using car_management_backend.Mappers;
 using car_management_backend.DTOs.GarageDTOs;
 using car_management_backend.Queries;
+using car_management_backend.DTOs.MaintenanceDTOs;
+using System.Globalization;
 
 namespace car_management_backend.Controllers
 {
@@ -116,6 +118,48 @@ namespace car_management_backend.Controllers
         [HttpGet("dailyAvailabilityReport")]
         public async Task<IActionResult> GetDailyAvailabilityReport([FromQuery] DailyGarageReportQueries dailyGarageReportQueries)
         {
+            var garage = await _garageService.GetGarageByIdAsync(dailyGarageReportQueries.GarageId);
+
+            if (garage == null)
+            {
+                return NotFound($"No garage found with id {dailyGarageReportQueries.GarageId}!");
+
+            }
+
+
+            string format = "yyyy-MM-dd";
+            DateOnly startDate = new DateOnly();
+            DateOnly endDate = new DateOnly();
+
+
+
+            bool IsValidFormatStartDate = DateOnly.TryParseExact(dailyGarageReportQueries.StartDate,
+                format,
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out startDate);
+
+            bool IsValidFormatEndDate = DateOnly.TryParseExact(dailyGarageReportQueries.EndDate,
+                format,
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out endDate);
+
+            if (!IsValidFormatStartDate)
+            {
+                return BadRequest("Invalid start date format!");
+            }
+
+            if (!IsValidFormatEndDate)
+            {
+                return BadRequest("Invalid end date format!");
+            }
+
+            if (startDate > endDate)
+            {
+                return BadRequest("Star date can't be later than end date!");
+            }
+
             var reports = await _garageService.GetDailyGarageReports(dailyGarageReportQueries);
 
             return Ok(reports);

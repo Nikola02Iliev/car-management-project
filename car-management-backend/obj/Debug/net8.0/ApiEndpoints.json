@@ -379,5 +379,31 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "car_management_backend.Controllers.MaintenanceController",
+    "Method": "GetMonthlyRequestsReport",
+    "RelativePath": "maintenances/monthlyRequestsReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GarageId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "StartMonth",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "EndMonth",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

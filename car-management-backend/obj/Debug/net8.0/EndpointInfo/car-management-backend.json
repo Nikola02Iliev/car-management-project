@@ -608,6 +608,45 @@
           }
         }
       }
+    },
+    "/maintenances/monthlyRequestsReport": {
+      "get": {
+        "tags": [
+          "Maintenance"
+        ],
+        "parameters": [
+          {
+            "name": "GarageId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "StartMonth",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "EndMonth",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
