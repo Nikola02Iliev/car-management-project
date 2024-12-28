@@ -57,14 +57,14 @@ namespace car_management_backend.Controllers
         }
 
         //Update Garage By Id
-        [HttpPut("{garageId}")]
-        public async Task<ActionResult> PutGarageAsync(int garageId, GarageInPutDTO garageInPutDTO)
+        [HttpPut("{id}")]
+        public async Task<ActionResult> PutGarageAsync(int id, GarageInPutDTO garageInPutDTO)
         {
-            var garage = await _garageService.GetGarageByIdAsync(garageId);
+            var garage = await _garageService.GetGarageByIdAsync(id);
 
             if (garage == null)
             {
-                return NotFound($"No garage found with id {garageId}!");
+                return NotFound($"No garage found with id {id}!");
             }
 
             await _garageService.UpdateGarageAsync(garage, garageInPutDTO);
@@ -101,13 +101,13 @@ namespace car_management_backend.Controllers
         }
 
         //Delete Garage By Id
-        [HttpDelete("{garageId}")]
-        public async Task<ActionResult> DeleteGarageAsync(int garageId)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteGarageAsync(int id)
         {
-            var garage = await _garageService.GetGarageByIdAsync(garageId);
+            var garage = await _garageService.GetGarageByIdAsync(id);
             if (garage == null) 
             {
-                return NotFound($"No garage found with id {garageId}!");
+                return NotFound($"No garage found with id {id}!");
             }
 
             await _garageService.DeleteGarageAsync(garage);

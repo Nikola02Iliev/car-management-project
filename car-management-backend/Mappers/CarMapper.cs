@@ -9,7 +9,7 @@ namespace car_management_backend.Mappers
         {
             return new CarInListDTO
             {
-                CarId = car.CarId,
+                Id = car.CarId,
                 Make = car.Make,
                 Model = car.Model,
                 ProductionYear = car.ProductionYear,

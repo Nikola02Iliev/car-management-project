@@ -17,8 +17,8 @@ namespace car_management_backend.DTOs.CarDTOs
         [Range(0, 2024, ErrorMessage = "Production year must be between 0 and 2024!")]
         public int? ProductionYear { get; set; }
 
-        [Required(ErrorMessage = "License is required!")]
-        [StringLength(13, ErrorMessage = "Make must be no more than 13 characters!")]
+        [Required(ErrorMessage = "License plate is required!")]
+        [StringLength(13, ErrorMessage = "License plate must be no more than 13 characters!")]
         public string LicensePlate { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "GaragesIds is required!")]

@@ -318,14 +318,16 @@
             }
           }
         }
-      },
+      }
+    },
+    "/garages/{id}": {
       "put": {
         "tags": [
           "Garage"
         ],
         "parameters": [
           {
-            "name": "garageId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -365,7 +367,7 @@
         ],
         "parameters": [
           {
-            "name": "garageId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -420,7 +422,7 @@
         }
       }
     },
-    "/maintenances": {
+    "/maintenance": {
       "get": {
         "tags": [
           "Maintenance"
@@ -508,7 +510,7 @@
         }
       }
     },
-    "/maintenances/{maintenanceId}": {
+    "/maintenance/{maintenanceId}": {
       "get": {
         "tags": [
           "Maintenance"
@@ -609,7 +611,7 @@
         }
       }
     },
-    "/maintenances/monthlyRequestsReport": {
+    "/maintenance/monthlyRequestsReport": {
       "get": {
         "tags": [
           "Maintenance"

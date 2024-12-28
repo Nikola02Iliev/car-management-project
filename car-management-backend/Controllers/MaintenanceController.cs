@@ -18,7 +18,7 @@ using Microsoft.SqlServer.Server;
 
 namespace car_management_backend.Controllers
 {
-    [Route("maintenances")]
+    [Route("maintenance")]
     [ApiController]
     public class MaintenanceController : ControllerBase
     {
@@ -38,7 +38,9 @@ namespace car_management_backend.Controllers
         {
             var maintenances = _maintenanceService.GetMaintenances(maintenanceQueries);
 
-            return Ok(maintenances);
+            var maintenancesInListDTO = maintenances.Select(m => m.ConvertMaintenanceToMaintenanceInListDTO());
+
+            return Ok(maintenancesInListDTO);
         }
 
         //Get Maintenance By Id

@@ -89,6 +89,7 @@ namespace car_management_backend.Controllers
             var garageIds = carInPostDTO.GaragesIds;
 
             var allGarageIds = await _garageService.GetAllGarageIdsAsync();
+            var allLicensePlates = await _carService.GetAllLicensePlatesAsync();
 
             foreach(var garageId in garageIds)
             {
@@ -98,6 +99,12 @@ namespace car_management_backend.Controllers
 
                 }
             }
+
+            if (allLicensePlates.Contains(carInPostDTO.LicensePlate))
+            {
+                return BadRequest($"Car with license plate {carInPostDTO.LicensePlate} already exists!");
+            }
+
 
             var car = carInPostDTO.ConvertCarInPostDTOToCar();
 

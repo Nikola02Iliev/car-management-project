@@ -9,7 +9,7 @@ namespace car_management_backend.Mappers
         {
             return new GarageInListDTO
             {
-                GarageId = garage.GarageId,
+                Id = garage.GarageId,
                 Name = garage.Name,
                 Location = garage.Location,
                 City = garage.City,

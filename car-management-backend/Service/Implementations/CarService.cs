@@ -180,6 +180,11 @@ namespace car_management_backend.Service.Implementations
             return carIds;
         }
 
-        
+        public async Task<List<string>> GetAllLicensePlatesAsync()
+        {
+            var licensePlates = await _carRepository.GetCars().Select(c => c.LicensePlate).ToListAsync();
+
+            return licensePlates;
+        }
     }
 }

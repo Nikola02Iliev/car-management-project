@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Projects\\car-management-project\\car-management-backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\car-management-project\\car-management-backend\\Migrations\\20241227095319_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20241227095319_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\controllers\\maintenancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:controllers\\maintenancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\mappers\\maintenancemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:mappers\\maintenancemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\dtos\\maintenancedtos\\maintenanceinlistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:dtos\\maintenancedtos\\maintenanceinlistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|c:\\projects\\car-management-project\\car-management-backend\\models\\maintenance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED46EB4C-DDEA-4086-B61C-A181887B94EC}|car-management-backend.csproj|solutionrelative:models\\maintenance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20241227095319_Initial.cs",
-              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Migrations\\20241227095319_Initial.cs",
-              "RelativeDocumentMoniker": "Migrations\\20241227095319_Initial.cs",
-              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Migrations\\20241227095319_Initial.cs",
-              "RelativeToolTip": "Migrations\\20241227095319_Initial.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "MaintenanceMapper.cs",
+              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Mappers\\MaintenanceMapper.cs",
+              "RelativeDocumentMoniker": "Mappers\\MaintenanceMapper.cs",
+              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Mappers\\MaintenanceMapper.cs",
+              "RelativeToolTip": "Mappers\\MaintenanceMapper.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABEAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T09:53:19.627Z",
+              "WhenOpened": "2024-12-28T14:06:42.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MaintenanceInListDTO.cs",
+              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\DTOs\\MaintenanceDTOs\\MaintenanceInListDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\MaintenanceDTOs\\MaintenanceInListDTO.cs",
+              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\DTOs\\MaintenanceDTOs\\MaintenanceInListDTO.cs",
+              "RelativeToolTip": "DTOs\\MaintenanceDTOs\\MaintenanceInListDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T14:05:49.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Maintenance.cs",
+              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Models\\Maintenance.cs",
+              "RelativeDocumentMoniker": "Models\\Maintenance.cs",
+              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Models\\Maintenance.cs",
+              "RelativeToolTip": "Models\\Maintenance.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T14:06:09.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MaintenanceController.cs",
+              "DocumentMoniker": "C:\\Projects\\car-management-project\\car-management-backend\\Controllers\\MaintenanceController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MaintenanceController.cs",
+              "ToolTip": "C:\\Projects\\car-management-project\\car-management-backend\\Controllers\\MaintenanceController.cs",
+              "RelativeToolTip": "Controllers\\MaintenanceController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAswCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T14:04:24.025Z",
               "EditorCaption": ""
             }
           ]
